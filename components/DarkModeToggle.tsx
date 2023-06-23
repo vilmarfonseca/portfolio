@@ -1,18 +1,42 @@
-"use client"
-import React from 'react'
+"use client";
+import React, { useState } from "react";
 import { useTheme } from "next-themes";
+import { AnimatePresence, motion } from "framer-motion";
+import styles from "@styles/components/Toggle.module.css";
+import { Moon } from "styled-icons/heroicons-solid";
+import { Moon as MoonOutline } from "styled-icons/heroicons-outline";
 
 const DarkModeToggle = () => {
-    const { systemTheme, theme, setTheme } = useTheme();
-    const currentTheme = theme === 'system' ? systemTheme : theme;
+  const { systemTheme, theme, setTheme } = useTheme();
+  const toggleSwitch = () =>
+    theme == "dark" ? setTheme("light") : setTheme("dark");
 
-    return (
-        <button
-            onClick={() => theme == "dark"? setTheme('light'): setTheme("dark")}
-            className='bg-gray-800 dark:bg-gray-50 hover:bg-gray-600 dark:hover:bg-gray-300 transition-all duration-100 text-white dark:text-gray-800 px-8 py-2 text-2xl md:text-4xl rounded-lg absolute bottom-32'>
-            Toggle Dark Mode
-        </button>
-    )
-}
+  const spring = {
+    type: "spring",
+    stiffness: 700,
+    damping: 30,
+  };
 
-export default DarkModeToggle
+  return (
+    <div className="flex gap-2">
+      <div
+        className={styles.switch}
+        data-isOn={theme === "dark"}
+        onClick={toggleSwitch}
+      >
+        <motion.div className={styles.handle} layout transition={spring} />
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="h-4 w-4"
+      >
+        {theme == "dark" ? <Moon /> : <MoonOutline />}
+      </motion.div>
+    </div>
+  );
+};
+
+export default DarkModeToggle;

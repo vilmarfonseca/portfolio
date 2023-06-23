@@ -6,10 +6,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "framer-motion": "^10.12.16",
     "next": "latest",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "styled-icons": "^10.47.0",
     "touch-cli": "^0.0.1"
   },
   "devDependencies": {

@@ -4,11 +4,11 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
   Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
   sans-serif;
+
+  @apply bg-anti-flash-white dark:bg-space-coast p-0 m-0;
 }
 * {
   box-sizing: border-box;
@@ -39,4 +39,8 @@ ul {
 button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+}
+
+.container {
+  @apply px-[25px] md:px-[100px] mx-auto;
 }

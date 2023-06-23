@@ -7,7 +7,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "anti-flash-white": "#edf2f4",
+        "space-coast": "#2b2d42",
+        "pantone": "#ef233c",
+        "crimson": "#D80032",
+        "white": "#fff"
+      },
+    },
   },
   plugins: [],
 }
